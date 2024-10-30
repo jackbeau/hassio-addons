@@ -1,0 +1,38 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: Homebridge Home
+# Configures NGINX for use with the Homebridge server
+# ==============================================================================
+declare homebridge_port=8581
+declare homebridge_protocol=http
+
+# Generate upstream configuration
+bashio::var.json \
+    port "^${homebridge_port}" \
+    | tempio \
+        -template /etc/nginx/templates/upstream.gtpl \
+        -out /etc/nginx/includes/upstream.conf
+
+# Generate Ingress configuration
+bashio::var.json \
+    interface "$(bashio::addon.ip_address)" \
+    port "^$(bashio::addon.ingress_port)" \
+    protocol "${homebridge_protocol}" \
+    | tempio \
+        -template /etc/nginx/templates/ingress.gtpl \
+        -out /etc/nginx/servers/ingress.conf
+
+# # Generate direct access configuration, if enabled.
+# if bashio::var.has_value "$(bashio::addon.port 5000)"; then
+#     bashio::var.json \
+#         certfile "$(bashio::config 'certfile')" \
+#         keyfile "$(bashio::config 'keyfile')" \
+#         leave_front_door_open "^$(bashio::config 'leave_front_door_open')" \
+#         port "^$(bashio::addon.port 5000)" \
+#         protocol "${homebridge_protocol}" \
+#         ssl "^$(bashio::config 'ssl')" \
+#         | tempio \
+#             -template /etc/nginx/templates/direct.gtpl \
+#             -out /etc/nginx/servers/direct.conf
+# fi

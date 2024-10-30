@@ -1,0 +1,21 @@
+name: Homebridge
+version: dev
+slug: homebridge
+description: HomeKit API implementation with plugin and ingress
+url: https://github.com/jackbeau/hassio-addons
+ingress: true
+ingress_stream: true
+panel_icon: mdi:apple
+startup: application
+arch:
+  - armv7
+  - aarch64
+  - amd64
+ports:
+  8581/tcp: 8581
+ports_description:
+  8581/tcp: Homebridge UI
+host_network: true
+init: false
+map:
+  - addon_config:rw
