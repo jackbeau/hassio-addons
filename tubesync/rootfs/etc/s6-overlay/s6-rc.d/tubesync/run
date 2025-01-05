@@ -1,0 +1,8 @@
+#!/command/with-contenv bashio
+# shellcheck shell=bash
+# ==============================================================================
+# Home Assistant Community Add-on: Radarr
+# Runs Radarr
+# ==============================================================================
+
+bashio::log.info 'Starting Radarr...'
