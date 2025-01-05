@@ -1,7 +1,7 @@
-name: Homebridge
+name: TubeSync
 version: dev
-slug: homebridge
-description: HomeKit API implementation with plugin and ingress
+slug: tubesync
+description: PVR (personal video recorder) for YouTube
 url: https://github.com/jackbeau/hassio-addons
 ingress: true
 ingress_stream: true
