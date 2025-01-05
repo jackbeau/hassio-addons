@@ -26,6 +26,6 @@ map:
     read_only: False
     path: /config
 environment:
-  TZ: "Europe/London"
+  sgsg-  TZ: "Europe/London"
   PUID: "1000"
   PGID: "1000"
