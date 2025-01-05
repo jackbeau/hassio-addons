@@ -8,7 +8,7 @@ ingress_stream: true
 panel_icon: mdi:record-player
 startup: application
 arch:
-  - armv7
+  - amd64
   - aarch64
   - amd64
 ports:
@@ -25,3 +25,7 @@ map:
   - type: addon_config
     read_only: False
     path: /config
+environment:
+  TZ: Europe/London
+  PUID: 1000
+  PGID: 1000
