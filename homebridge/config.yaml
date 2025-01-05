@@ -18,4 +18,9 @@ ports_description:
 host_network: true
 init: false
 map:
-  - addon_config:rw
+  - type: media
+    read_only: False
+    path: /downloads
+  - type: addon_config
+    read_only: False
+    path: /config
