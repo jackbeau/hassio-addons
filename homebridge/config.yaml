@@ -1,21 +1,30 @@
-name: Homebridge
+name: TubeSync
 version: dev
-slug: homebridge
-description: HomeKit API implementation with plugin and ingress
+slug: tubesync
+description: PVR (personal video recorder) for YouTube
 url: https://github.com/jackbeau/hassio-addons
 ingress: true
 ingress_stream: true
-panel_icon: mdi:apple
+panel_icon: mdi:record-player
 startup: application
 arch:
   - armv7
   - aarch64
   - amd64
 ports:
-  8581/tcp: 8581
+  4848/tcp: 4848
 ports_description:
-  8581/tcp: Homebridge UI
+  4848/tcp: TubeSync UI
 host_network: true
 init: false
+environment:
+  - TZ=Europe/London
+  - PUID=1000
+  - PGID=1000
 map:
-  - addon_config:rw
+  - type: media
+    read_only: False
+    path: /downloads
+  - type: addon_config
+    read_only: False
+    path: /config
