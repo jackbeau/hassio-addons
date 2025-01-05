@@ -29,3 +29,4 @@ environment:
   TZ: "Europe/London"
   PUID: "1000"
   PGID: "1000"
+  LISTEN_PORT: "6736"
