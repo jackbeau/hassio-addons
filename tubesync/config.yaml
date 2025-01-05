@@ -1,4 +1,5 @@
-name: TubeSfsegsgstest
+name: TubeSync
+version: latest
 slug: tubesync
 description: PVR (personal video recorder) for YouTube
 url: https://github.com/jackbeau/hassio-addons
@@ -25,6 +26,6 @@ map:
     read_only: False
     path: /config
 environment:
-  TZ: "Europe/London"
+  TZ: Europe/London
   PUID: "1000"
   PGID: "1000"
