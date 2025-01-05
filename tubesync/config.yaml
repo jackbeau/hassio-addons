@@ -3,8 +3,6 @@ version: latest
 slug: tubesync
 description: PVR (personal video recorder) for YouTube
 url: https://github.com/jackbeau/hassio-addons
-ingress: true
-ingress_stream: true
 panel_icon: mdi:record-player
 startup: application
 arch:
@@ -15,7 +13,6 @@ ports:
   4848/tcp: 4848
 ports_description:
   4848/tcp: TubeSync UI
-init: false
 image: ghcr.io/meeb/tubesync
 map:
   - type: media
