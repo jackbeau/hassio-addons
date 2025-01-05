@@ -15,7 +15,6 @@ ports:
   4848/tcp: 4848
 ports_description:
   4848/tcp: TubeSync UI
-host_network: true
 init: false
 image: ghcr.io/meeb/tubesync
 map:
