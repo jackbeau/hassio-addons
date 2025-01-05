@@ -1,8 +1,0 @@
-#!/command/with-contenv bashio
-# shellcheck shell=bash
-# ==============================================================================
-# Home Assistant Community Add-on: TubeSync
-# Runs TubeSync
-# ==============================================================================
-
-bashio::log.info 'Starting TubeSync...'
