@@ -17,7 +17,7 @@ image: ghcr.io/meeb/tubesync
 map:
   - type: media
     read_only: False
-    path:  /downloads/downloads
+    path:  /downloads
   - type: addon_config
     read_only: False
     path: /config
