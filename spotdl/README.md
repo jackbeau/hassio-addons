@@ -1,0 +1,1 @@
+# Tubesync addon for Home Assistant

@@ -1,0 +1,26 @@
+name: spotDL
+version: latest
+slug: spotdl
+description: PVR (personal video recorder) for YouTube using Spotify metadata
+url: https://github.com/jackbeau/hassio-addons
+panel_icon: mdi:spotify
+startup: application
+arch:
+  - amd64
+  - aarch64
+  - amd64
+ports:
+  8800/tcp: 8800
+ports_description:
+  8800/tcp: SpotDL UI
+image: spotdl/spotify-downloader
+map:
+  - type: media
+    read_only: False
+    path:  /music
+environment:
+  TZ: Europe/London
+  PUID: "1000"
+  PGID: "1000"
+  TUBESYNC_DIRECTORY_PREFIX: "false"
+init: false
