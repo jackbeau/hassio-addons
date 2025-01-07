@@ -7,4 +7,4 @@ VOLUME /music
 WORKDIR /music
 
 # Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir", "--output", "{artist}/{album}/{track-number} - {title}.{output-ext}"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir", "--output", "music/{artist}/{album}/{track-number} - {title}.{output-ext}"]
