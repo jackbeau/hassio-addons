@@ -1,5 +1,5 @@
 name: spotDL
-version: dev
+version: 0.1
 slug: spotdl
 description: PVR (personal video recorder) for YouTube using Spotify metadata
 url: https://github.com/jackbeau/hassio-addons
