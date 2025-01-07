@@ -37,4 +37,4 @@ VOLUME /music
 WORKDIR /music
 
 # Entrypoint command
-RUN poetry run spotdl web --host 0.0.0.0 --web-use-output-dir --output "{artist}/{album}/{track-number} - {title}.{output-ext}"
+CMD poetry run spotdl web --host 0.0.0.0 --web-use-output-dir --output "{artist}/{album}/{track-number} - {title}.{output-ext}"
