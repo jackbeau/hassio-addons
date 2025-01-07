@@ -1,4 +1,4 @@
-FROM spotdl:latest
+FROM spotdl/spotify-downloader:latest
 
 # Create a volume for the output directory
 VOLUME /music
@@ -7,4 +7,4 @@ VOLUME /music
 WORKDIR /music
 
 # Entrypoint command
-ENTRYPOINT ["spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir", "--output", "{artist}/{album}/{track-number} - {title}.{output-ext}"]
+ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir", "--output", "{artist}/{album}/{track-number} - {title}.{output-ext}"]
