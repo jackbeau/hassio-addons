@@ -1,11 +1,40 @@
-ARG BUILD_FROM
-FROM $BUILD_FROM
+FROM python:3-alpine
 
-# Execute during the build of the image
-ARG TEMPIO_VERSION BUILD_ARCH
-RUN \
-    curl -sSLf -o /usr/bin/tempio \
-    "https://github.com/home-assistant/tempio/releases/download/${TEMPIO_VERSION}/tempio_${BUILD_ARCH}"
+# Install dependencies
+RUN apk add --no-cache \
+    ca-certificates \
+    ffmpeg \
+    openssl \
+    aria2 \
+    g++ \
+    git \
+    py3-cffi \
+    libffi-dev \
+    zlib-dev
 
-# Copy root filesystem
-COPY rootfs /
+# Install poetry and update pip/wheel
+RUN pip install --upgrade pip poetry wheel spotipy
+
+# Copy requirements files
+COPY poetry.lock pyproject.toml /
+
+# Install spotdl requirements
+RUN poetry install
+
+# Add source code files to WORKDIR
+ADD . .
+
+# Install spotdl itself
+RUN poetry install
+
+# Create music directory
+RUN mkdir /music
+
+# Create a volume for the output directory
+VOLUME /music
+
+# Change CWD to /music
+WORKDIR /music
+
+# Entrypoint command
+RUN poetry run spotdl web --host 0.0.0.0 --web-use-output-dir --output "{artist}/{album}/{track-number} - {title}.{output-ext}"
