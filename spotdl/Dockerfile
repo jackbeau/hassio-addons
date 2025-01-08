@@ -12,6 +12,5 @@ COPY run.sh /
 RUN chmod +x /run.sh
 
 # START COMMAND
-ENTRYPOINT [ "" ]
-
-CMD "/run.sh"
+ENTRYPOINT ["/bin/sh", "-c"]
+CMD ["/run.sh"]
