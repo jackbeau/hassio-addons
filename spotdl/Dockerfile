@@ -14,4 +14,4 @@ RUN chmod +x /run.sh
 # START COMMAND
 ENTRYPOINT [ "" ]
 
-CMD [ "/run.sh" ]
+CMD "/run.sh"
