@@ -3,8 +3,15 @@ FROM spotdl/spotify-downloader:latest
 # Create a volume for the output directory
 VOLUME /music
 
-# Change CWD to /music
-WORKDIR /music
+WORKDIR /
 
-# Entrypoint command
-ENTRYPOINT ["poetry", "run", "spotdl", "web", "--host", "0.0.0.0", "--web-use-output-dir", "--output", "music/{artist}/{album}/{track-number} - {title}.{output-ext}"]
+VOLUME /config
+
+COPY run.sh /
+
+RUN chmod +x /run.sh
+
+# START COMMAND
+ENTRYPOINT [ "" ]
+
+CMD [ "/run.sh" ]

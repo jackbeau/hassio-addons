@@ -19,3 +19,15 @@ host_network: true
 init: false
 map:
   - addon_config:rw
+options:
+  beer: true
+  wine: true
+  liquor: false
+  name: "world"
+  year: 2017
+schema:
+  beer: bool
+  wine: bool
+  liquor: bool
+  name: str
+  year: int

@@ -17,6 +17,9 @@ map:
   - type: media
     read_only: False
     path:  /music
+  - type: addon_config
+    read_only: false
+    path: /config
 environment:
   TZ: Europe/London
   PUID: "1000"
